@@ -49,6 +49,9 @@
   var tiltX=0, tiltY=0, last=-1, cap=sec.querySelector('.stepcap');
   var mq=window.matchMedia('(max-width:900px)');
   var vh=window.innerHeight; // fixed until the width changes, so the phone address bar can't make it jump
+  var k=1; // laptop: shrink the stack so it fits a short window
+  function fit(){ k = mq.matches ? 1 : Math.max(.5, Math.min(1, (vh-100)/540)); }
+  fit();
   function frame(){
     var r=sec.getBoundingClientRect(), total=sec.offsetHeight-vh;
     var p=reduce?1:Math.min(1,Math.max(0,-r.top/Math.max(1,total)));
@@ -67,7 +70,7 @@
       last=cur;
     }
     stack.style.setProperty('--s', spread.toFixed(3));
-    stack.style.transform='rotateX('+(44-tiltY)+'deg) rotateZ('+(-26+tiltX)+'deg)';
+    stack.style.transform='scale3d('+k+','+k+','+k+') rotateX('+(44-tiltY)+'deg) rotateZ('+(-26+tiltX)+'deg)';
   }
   lis.forEach(function(li,i){
     li.setAttribute('tabindex','0'); li.setAttribute('role','button');
@@ -85,6 +88,9 @@
   var ticking=false;
   window.addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ frame(); ticking=false; }); } },{passive:true});
   var lastW=window.innerWidth;
-  window.addEventListener('resize',function(){ if(window.innerWidth!==lastW){ lastW=window.innerWidth; vh=window.innerHeight; frame(); } });
+  window.addEventListener('resize',function(){
+    var w=window.innerWidth, h=window.innerHeight;
+    if(w!==lastW || (!mq.matches && h!==vh)){ lastW=w; vh=h; fit(); frame(); }
+  });
   frame();
 })();

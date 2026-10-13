@@ -252,7 +252,10 @@ footer a:hover{opacity:1}
 .demo .ins{display:inline-block;max-width:0;overflow:hidden;white-space:nowrap;vertical-align:bottom;transition:max-width .9s var(--ease),background .6s,opacity .4s}
 .demo .on .ins{max-width:12em}
 .hero .fine{margin-top:18px;font-size:13px}
-@media (min-width:901px){.explode{margin-top:-150px}}
+@media (min-width:901px){
+  .explode{margin-top:calc(-1 * clamp(0px, (100svh - 640px) / 2, 150px))}
+  .stage{height:min(540px, calc(100svh - 100px))}
+}
 
 /* divider between same-colour sections: hairline, brand mark, hairline */
 .divider{display:flex;align-items:center;justify-content:center;gap:16px;max-width:1120px;margin:0 auto;padding:0 28px}
@@ -268,12 +271,12 @@ footer a:hover{opacity:1}
 /* phone: 3D section fills the screen evenly, shorter scroll, no floating tags */
 @media (max-width:900px){
   .explode{height:220vh;margin-top:-70px}
-  .explode .pin{align-content:center;padding:0 18px}
-  .stage{height:min(48svh,400px);margin-top:0}
+  .explode .pin{grid-template-rows:minmax(0,1fr) auto auto;align-content:stretch;padding:0 18px 28px}
+  .stage{height:auto;min-height:0;margin-top:0}
   .stack{width:300px;height:222px}
   .layer{font-size:10.5px}
   .layer .tag{display:none}
-  .stepcap{min-height:0;margin:14px 0 0}
+  .stepcap{min-height:6.3em;margin:14px 0 0}
 }
 @media (max-width:640px){
   .js [data-r]{transform:translateY(10px);filter:blur(3px);transition-duration:.55s,.6s,.55s;transition-delay:calc(var(--i,0) * 70ms)}
@@ -286,10 +289,10 @@ footer a:hover{opacity:1}
   .facts .fact .big{color:#1D4ED8}
   .cols:not(.cards){gap:36px}
 }
-/* modules: accordion on phone (Weave-style), description opens inside the card */
+/* modules: accordion on every screen (Weave-style), description opens inside the card */
 .mod .md{display:none}
-@media (max-width:900px){
-  .mods{grid-template-columns:1fr;gap:0;margin-top:36px}
+@media all{
+  .mods{grid-template-columns:1fr;gap:0;margin-top:36px;max-width:760px;margin-left:auto;margin-right:auto}
   .mods .mod:first-child{grid-column:auto}
   .mod{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr);column-gap:10px;align-items:baseline;padding:18px 18px;border-radius:12px;border:1px solid rgba(17,17,17,.12);background:var(--card);transform:none!important}
   .mod+.mod{margin-top:22px}
