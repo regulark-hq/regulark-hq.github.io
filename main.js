@@ -22,6 +22,17 @@
     });
   }
 
+
+  // Modules strip: click a module to select it (turns gold) and show what it covers.
+  var mods=[].slice.call(document.querySelectorAll('.mod')), descs=[].slice.call(document.querySelectorAll('.moddesc p'));
+  mods.forEach(function(m){
+    m.addEventListener('click',function(){
+      var i=m.getAttribute('data-i');
+      mods.forEach(function(x){ var on=x===m; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on?'true':'false'); });
+      descs.forEach(function(d){ d.classList.toggle('on', d.getAttribute('data-i')===i); });
+    });
+  });
+
   // Exploded view: the four layers separate as you scroll.
   var sec=document.querySelector('.explode'); if(!sec) return;
   var stack=sec.querySelector('.stack'), layers=[].slice.call(sec.querySelectorAll('.layer')), items=[].slice.call(sec.querySelectorAll('.steps3d li'));
@@ -38,6 +49,17 @@
     stack.style.setProperty('--s', spread.toFixed(3));
     stack.style.transform='rotateX('+(58-tiltY)+'deg) rotateZ('+(-38+tiltX)+'deg)';
   }
+  // Clicking a step glides the page to that stage of the exploded view.
+  items.forEach(function(li,i){
+    li.setAttribute('tabindex','0'); li.setAttribute('role','button');
+    function go(){
+      var total=sec.offsetHeight-window.innerHeight;
+      var y=sec.getBoundingClientRect().top+window.pageYOffset+total*((i+0.5)/4);
+      window.scrollTo({top:y,behavior:reduce?'auto':'smooth'});
+    }
+    li.addEventListener('click',go);
+    li.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } });
+  });
   if(fine && !reduce){
     sec.addEventListener('pointermove',function(ev){ tiltX=(ev.clientX/window.innerWidth-.5)*10; tiltY=(ev.clientY/window.innerHeight-.5)*8; frame(); });
   }
