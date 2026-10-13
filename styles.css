@@ -252,10 +252,7 @@ footer a:hover{opacity:1}
 .demo .ins{display:inline-block;max-width:0;overflow:hidden;white-space:nowrap;vertical-align:bottom;transition:max-width .9s var(--ease),background .6s,opacity .4s}
 .demo .on .ins{max-width:12em}
 .hero .fine{margin-top:18px;font-size:13px}
-@media (min-width:901px){
-  .explode{margin-top:calc(-1 * clamp(0px, (100svh - 640px) / 2, 150px))}
-  .stage{height:min(540px, calc(100svh - 100px))}
-}
+@media (min-width:901px){.explode{margin-top:-150px}}
 
 /* divider between same-colour sections: hairline, brand mark, hairline */
 .divider{display:flex;align-items:center;justify-content:center;gap:16px;max-width:1120px;margin:0 auto;padding:0 28px}
@@ -271,12 +268,12 @@ footer a:hover{opacity:1}
 /* phone: 3D section fills the screen evenly, shorter scroll, no floating tags */
 @media (max-width:900px){
   .explode{height:220vh;margin-top:-70px}
-  .explode .pin{grid-template-rows:minmax(0,1fr) auto auto;align-content:stretch;padding:0 18px 28px}
-  .stage{height:auto;min-height:0;margin-top:0}
+  .explode .pin{align-content:center;padding:0 18px}
+  .stage{height:min(48svh,400px);margin-top:0}
   .stack{width:300px;height:222px}
   .layer{font-size:10.5px}
   .layer .tag{display:none}
-  .stepcap{min-height:6.3em;margin:14px 0 0}
+  .stepcap{min-height:0;margin:14px 0 0}
 }
 @media (max-width:640px){
   .js [data-r]{transform:translateY(10px);filter:blur(3px);transition-duration:.55s,.6s,.55s;transition-delay:calc(var(--i,0) * 70ms)}
@@ -289,10 +286,10 @@ footer a:hover{opacity:1}
   .facts .fact .big{color:#1D4ED8}
   .cols:not(.cards){gap:36px}
 }
-/* modules: accordion on every screen (Weave-style), description opens inside the card */
+/* modules: accordion on phone (Weave-style), description opens inside the card */
 .mod .md{display:none}
-@media all{
-  .mods{grid-template-columns:1fr;gap:0;margin-top:36px;max-width:760px;margin-left:auto;margin-right:auto}
+@media (max-width:900px){
+  .mods{grid-template-columns:1fr;gap:0;margin-top:36px}
   .mods .mod:first-child{grid-column:auto}
   .mod{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr);column-gap:10px;align-items:baseline;padding:18px 18px;border-radius:12px;border:1px solid rgba(17,17,17,.12);background:var(--card);transform:none!important}
   .mod+.mod{margin-top:22px}
@@ -309,20 +306,21 @@ footer a:hover{opacity:1}
   .mod.on .md{grid-template-rows:1fr;margin-top:10px}
   .moddesc{display:none}
 }
-
-/* phone: no scroll-pinning. Tap a tab, swipe the cards or use the arrows; it auto-plays until touched */
-.stepnav{display:none}
-@media (max-width:900px){
-  .explode{height:auto;margin-top:0}
-  .explode .pin{position:relative;top:auto;height:auto;grid-template-rows:auto auto auto auto;align-content:start;padding:0 18px 64px}
-  .stage{height:300px;margin-top:56px;touch-action:pan-y}
-  .sec.tight{z-index:auto}
-  .stepcap{min-height:6.3em}
-  .stepnav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:6px}
-  .stepnav button{all:unset;box-sizing:border-box;width:44px;height:44px;border-radius:50%;border:1px solid rgba(17,17,17,.16);background:var(--card);display:grid;place-items:center;font-size:26px;line-height:1;color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s}
-  .stepnav button:active{background:rgba(37,99,235,.08);border-color:var(--blue)}
-  .stepnav button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
-  .sn-count{font-size:14px;color:var(--meta);min-width:44px;text-align:center}
-  .sn-count b{color:var(--ink);font-weight:600}
-  .layer{transition:transform .55s var(--ease),opacity .45s,border-color .35s,box-shadow .35s}
+/* hero small line sits under the subline */
+.hero .status{margin:22px 0 0}
+.hero .status+.ctas{margin-top:26px}
+/* Why it matters: three short statements in cards */
+.cols.matters>div{text-align:center;padding:30px 24px}
+.cols.matters h3{font-size:20px;font-weight:600}
+@media (max-width:640px){
+  .hero .status{display:block;background:none;border:0;padding:0 8px;font-size:14px;line-height:1.5}
+  .hero .status i{display:inline-block;vertical-align:1px;margin-right:6px}
 }
+/* Why It Matters: blue fade-away boxes, brass pill marks each point */
+.sec .cols.cards.matters>div{background:linear-gradient(180deg,rgba(37,99,235,.14) 0%,rgba(37,99,235,.05) 55%,rgba(255,255,255,.35) 100%);border:1px solid rgba(37,99,235,.16);box-shadow:0 20px 44px -34px rgba(37,99,235,.55);text-align:left;padding:26px 24px}
+.cols.matters h3{display:flex;align-items:center;gap:12px;font-size:19px;line-height:1.3}
+.cols.matters h3::before{content:"";flex:none;width:22px;height:22px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3CclipPath id='c'%3E%3Crect x='0' y='24' width='48' height='24'/%3E%3C/clipPath%3E%3Crect transform='rotate(-45 24 24)' x='4.5' y='14.5' width='39' height='19' rx='9.5' fill='none' stroke='%23A8781F' stroke-width='3.5'/%3E%3Cg clip-path='url(%23c)'%3E%3Crect transform='rotate(-45 24 24)' x='4.5' y='14.5' width='39' height='19' rx='9.5' fill='%23A8781F'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
+/* closing call to action in its own blue fade-away box */
+.cta-box{max-width:880px;margin:0 auto;padding:56px 32px;border-radius:22px;background:linear-gradient(180deg,rgba(37,99,235,.12) 0%,rgba(37,99,235,.05) 60%,rgba(37,99,235,.01) 100%);border:1px solid rgba(37,99,235,.16);box-shadow:0 30px 70px -45px rgba(37,99,235,.55)}
+.cta-box .sub{margin-left:auto;margin-right:auto}
+@media (max-width:640px){.cta-box{padding:40px 20px;border-radius:18px}.cols.matters>div{padding:22px 20px}}
