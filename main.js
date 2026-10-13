@@ -42,6 +42,26 @@
     });
   });
 
+  // Modules: glass cards flip up into place as you scroll, one after another.
+  (function(){
+    var box=document.querySelector('.mods'); if(!box) return;
+    var cards=[].slice.call(box.querySelectorAll('.mod'));
+    var phone=window.matchMedia('(max-width:900px)');
+    if(reduce){ cards.forEach(function(c){c.style.setProperty('--t',1);}); return; }
+    function upd(){
+      var vh=window.innerHeight;
+      cards.forEach(function(c,i){
+        var r=c.getBoundingClientRect();
+        var raw=(vh-r.top)/(vh*(phone.matches?0.32:0.42)) - (phone.matches?0:i*0.16);
+        var t=Math.max(0,Math.min(1,raw)); t=1-Math.pow(1-t,3);
+        c.style.setProperty('--t',t.toFixed(3));
+      });
+    }
+    var tk=false;
+    window.addEventListener('scroll',function(){ if(!tk){ tk=true; requestAnimationFrame(function(){ upd(); tk=false; }); } },{passive:true});
+    window.addEventListener('resize',upd); upd();
+  })();
+
   // Exploded view: the four sheets separate as you scroll; the current one is outlined.
   var sec=document.querySelector('.explode'); if(!sec) return;
   var fine = window.matchMedia('(pointer: fine)').matches;
@@ -72,6 +92,7 @@
   lis.forEach(function(li,i){
     li.setAttribute('tabindex','0'); li.setAttribute('role','button');
     function go(){
+      if(mq.matches) return; // phone: steps are plain cards, no scroll effect
       var total=sec.offsetHeight-window.innerHeight;
       var y=sec.getBoundingClientRect().top+window.pageYOffset+total*((i+0.5)/4);
       window.scrollTo({top:y,behavior:reduce?'auto':'smooth'});

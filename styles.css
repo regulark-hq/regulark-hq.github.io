@@ -324,3 +324,35 @@ footer a:hover{opacity:1}
 .cta-box{max-width:880px;margin:0 auto;padding:56px 32px;border-radius:22px;background:linear-gradient(180deg,rgba(37,99,235,.12) 0%,rgba(37,99,235,.05) 60%,rgba(37,99,235,.01) 100%);border:1px solid rgba(37,99,235,.16);box-shadow:0 30px 70px -45px rgba(37,99,235,.55)}
 .cta-box .sub{margin-left:auto;margin-right:auto}
 @media (max-width:640px){.cta-box{padding:40px 20px;border-radius:18px}.cols.matters>div{padding:22px 20px}}
+/* phone: no scroll effect in How It Works; the four steps are plain cards */
+@media (max-width:900px){
+  .explode{height:auto;margin-top:0}
+  .explode .pin{position:static;height:auto;display:block;padding:28px 18px 64px}
+  .stage,.stepcap{display:none}
+  .steps3d{display:block;border:0;padding:0;counter-reset:st}
+  .steps3d li{position:relative;opacity:1;cursor:default;text-align:left;border:1px solid rgba(17,17,17,.12);border-radius:12px;background:var(--card);padding:18px 18px 18px 58px;counter-increment:st}
+  .steps3d li.on{border-color:rgba(17,17,17,.12)}
+  .steps3d li+li{margin-top:22px}
+  .steps3d li+li::after{content:"";position:absolute;left:50%;top:-23px;width:1px;height:22px;background:rgba(17,17,17,.18)}
+  .steps3d li::before{content:"0" counter(st);position:absolute;left:18px;top:21px;font-size:13px;font-weight:600;color:var(--brass)}
+  .steps3d li h3{font-size:18px;white-space:normal}
+  .steps3d li p{display:block;max-height:none;opacity:1;margin-top:6px;font-size:15.5px}
+}
+/* What We're Building: two pillars */
+.cols.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:860px;margin:44px auto 0;text-align:left}
+.cols.matters p{margin:8px 0 0 34px;font-size:15.5px;line-height:1.55;color:var(--text)}
+@media (max-width:860px){.cols.two{grid-template-columns:1fr;gap:14px;margin-top:32px}}
+/* Where We Start: glass cards over a soft glow, flipping up into place on scroll (--t: 0→1, set by main.js) */
+.mods{position:relative;isolation:isolate;perspective:1100px}
+.mods::before{content:"";position:absolute;inset:-50px -70px;z-index:-1;pointer-events:none;background:radial-gradient(38% 70% at 18% 55%,rgba(231,182,90,.45),transparent 70%),radial-gradient(38% 70% at 82% 45%,rgba(37,99,235,.28),transparent 70%),radial-gradient(30% 60% at 50% 60%,rgba(231,182,90,.18),transparent 70%);filter:blur(28px);animation:glow 14s ease-in-out infinite alternate}
+@keyframes glow{from{transform:translateX(-3%) scale(1)}to{transform:translateX(3%) scale(1.06)}}
+.mods .mod{background:rgba(255,255,255,.52);-webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%);border:1px solid rgba(255,255,255,.75);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 0 0 1px rgba(17,17,17,.06),0 24px 48px -30px rgba(17,17,17,.35);
+  transform-origin:50% 100%;opacity:var(--t,1);transform:rotateX(calc((1 - var(--t,1)) * 70deg)) translateY(calc((1 - var(--t,1)) * 60px)) scale(calc(.9 + var(--t,1) * .1));transition:background .35s,border-color .35s,box-shadow .35s}
+.mods .mod:hover{border-color:rgba(255,255,255,.95);box-shadow:0 1px 0 rgba(255,255,255,.95) inset,0 0 0 1px rgba(168,120,31,.35),0 28px 52px -30px rgba(17,17,17,.4)}
+.mods .mod.on{background:linear-gradient(180deg,rgba(231,182,90,.72),rgba(231,182,90,.42));border-color:rgba(255,255,255,.6);box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 0 0 1px rgba(168,120,31,.35),0 26px 50px -28px rgba(168,120,31,.55)}
+@media (max-width:900px){
+  .mods::before{inset:-30px -18px}
+  .mods .mod{transform:rotateX(calc((1 - var(--t,1)) * 70deg)) translateY(calc((1 - var(--t,1)) * 50px)) scale(calc(.92 + var(--t,1) * .08))!important}
+  .mods .mod.on{background:linear-gradient(180deg,rgba(231,182,90,.55) 0%,rgba(231,182,90,.25) 60%,rgba(255,255,255,.45) 100%)}
+}
+@media (prefers-reduced-motion:reduce){.mods::before{animation:none}}
