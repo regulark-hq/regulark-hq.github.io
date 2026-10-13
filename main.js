@@ -51,7 +51,7 @@
   var mq=window.matchMedia('(max-width:900px)');
   var vh=window.innerHeight; // fixed until the width changes, so the phone address bar can't make it jump
   var k=1; // laptop: shrink the stack so it fits a short window
-  function fit(){ k = mq.matches ? 1 : Math.max(.5, Math.min(1, (vh-100)/540)); }
+  function fit(){ k = mq.matches ? Math.min(1, (window.innerWidth-24)/388) : Math.max(.5, Math.min(1, (vh-100)/540)); }
   fit();
   function frame(){
     var spread, cur;
