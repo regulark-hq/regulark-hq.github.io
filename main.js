@@ -12,7 +12,7 @@
   else {
     var io = new IntersectionObserver(function(es){
       es.forEach(function(e){ if(e.isIntersecting){ show(e.target); io.unobserve(e.target); } });
-    },{threshold:.12, rootMargin:'0px 0px -6% 0px'});
+    },(window.matchMedia('(max-width:640px)').matches ? {threshold:0, rootMargin:'0px 0px 8% 0px'} : {threshold:.12, rootMargin:'0px 0px -6% 0px'}));
     items.forEach(function(e){ io.observe(e); });
   }
 
