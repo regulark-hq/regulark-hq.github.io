@@ -309,3 +309,19 @@ footer a:hover{opacity:1}
   .mod.on .md{grid-template-rows:1fr;margin-top:10px}
   .moddesc{display:none}
 }
+
+/* phone: no scroll-pinning. Tap a tab, swipe the cards or use the arrows; it auto-plays until touched */
+.stepnav{display:none}
+@media (max-width:900px){
+  .explode{height:auto;margin-top:0}
+  .explode .pin{position:relative;top:auto;height:auto;grid-template-rows:auto auto auto auto;align-content:start;padding:8px 18px 64px}
+  .stage{height:300px;touch-action:pan-y}
+  .stepcap{min-height:6.3em}
+  .stepnav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:6px}
+  .stepnav button{all:unset;box-sizing:border-box;width:44px;height:44px;border-radius:50%;border:1px solid rgba(17,17,17,.16);background:var(--card);display:grid;place-items:center;font-size:26px;line-height:1;color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s}
+  .stepnav button:active{background:rgba(37,99,235,.08);border-color:var(--blue)}
+  .stepnav button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+  .sn-count{font-size:14px;color:var(--meta);min-width:44px;text-align:center}
+  .sn-count b{color:var(--ink);font-weight:600}
+  .layer{transition:transform .55s var(--ease),opacity .45s,border-color .35s,box-shadow .35s}
+}
