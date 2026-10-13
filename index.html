@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Regulark | ANDA filings, drafted in FDA's language</title>
-<meta name="description" content="Generic drug filings are still written by hand. Regulark is building software that researches the reference drug, finds the correct wording and drafts ANDA sections with FDA annotations, with a named person approving every change.">
+<meta name="description" content="Regulark researches the reference drug and drafts each section of a generic drug's ANDA in FDA's language, with a named person approving every change.">
 <meta name="theme-color" content="#FAFAF5">
 <link rel="canonical" href="https://regulark.com/">
 <link rel="icon" href="/favicon.ico?v=7" sizes="48x48">
 <link rel="icon" href="/icon7.svg?v=7" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=7">
 <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <header class="nav"><div class="wrap">
@@ -21,70 +22,72 @@
   </nav>
 </div></header>
 <main>
-<section class="hero center"><div class="wrap rise">
-  <p class="status">In development</p>
-  <h1 class="h-xl">ANDA filings,<br>drafted in FDA's language</h1>
-  <p class="sub">Regulark researches the reference drug and drafts each section of your ANDA. Your regulatory team approves every change.</p>
-  <div class="ctas"><a class="btn" href="contact.html">Request a demo</a><a class="more" href="#problem">Read the problem <span aria-hidden="true">&rsaquo;</span></a></div>
+<section class="hero center"><div class="wrap" data-g>
+  <p class="status" data-r><i></i>In development</p>
+  <h1 class="h-xl" data-r>ANDA Filings,<br>Drafted in FDA's Language</h1>
+  <p class="sub" data-r>Regulark researches the reference drug and drafts each section of your ANDA. Your regulatory team approves every change.</p>
+  <div class="ctas" data-r><a class="btn" href="contact.html">Request a demo</a><a class="more" href="#problem">Read the problem <span aria-hidden="true">&rsaquo;</span></a></div>
 </div></section>
 
-<section class="sec tone-dark" id="problem"><div class="wrap">
-  <div class="center rise">
-    <h2 class="h-l">The problem</h2>
-    <p class="sub">Generic medicines fill most prescriptions. Each one reaches patients through a regulatory filing, and much of every filing is careful, repetitive writing.</p>
+<div class="divider" aria-hidden="true"><span></span><svg viewBox="0 0 48 48" aria-hidden="true"><clipPath id="rkv"><rect x="0" y="24" width="48" height="24"/></clipPath><rect transform="rotate(-45 24 24)" x="4.5" y="14.5" width="39" height="19" rx="9.5" fill="none" stroke="#A8781F" stroke-width="3.5"/><g clip-path="url(#rkv)"><rect transform="rotate(-45 24 24)" x="4.5" y="14.5" width="39" height="19" rx="9.5" fill="#A8781F"/></g></svg><span></span></div>
+
+<section class="sec" id="problem"><div class="wrap">
+  <div class="center" data-g>
+    <h2 class="h-l" data-r>The Problem</h2>
+    <p class="sub" data-r>Most prescriptions are filled with generics. Every one needs a filing, and much of each filing is careful, repetitive writing.</p>
   </div>
-  <div class="facts">
-    <div class="fact rise"><div class="big">9 in 10</div><h3>US prescriptions are filled with generics</h3><span class="src">Source: <a href="https://www.fda.gov/drugs/buying-using-medicine-safely/generic-drugs">FDA</a></span></div>
-    <div class="fact rise"><div class="big">600</div><h3>new ANDAs were filed with FDA in fiscal 2025</h3><p>Each one carries its own labeling and regional documents.</p><span class="src">Source: <a href="https://www.lachmanconsultants.com/2025/10/full-fy-2025-ogd-statistical-report-issues/">FDA statistics</a></span></div>
-    <div class="fact rise"><div class="big">30&ndash;60</div><h3>pages in a typical prescribing label</h3><p>Every word has to be accounted for in the generic version.</p></div>
+  <div class="facts" data-g>
+    <div class="fact" data-r><div class="big">9 in 10</div><h3>US prescriptions are filled with generics</h3></div>
+    <div class="fact" data-r><div class="big">600</div><h3>new ANDAs filed with FDA in fiscal 2025</h3><p>Each with its own labeling and regional documents.</p></div>
+    <div class="fact" data-r><div class="big">30&ndash;60</div><h3>pages in a typical prescribing label</h3><p>Every word has to be accounted for in the generic.</p></div>
   </div>
-  <div class="quote rise">
-    <q>…the same as the labeling of the reference listed drug except for differences annotated and explained</q>
-    <cite>What US law requires of every generic label, 21 CFR 314.94(a)(8)</cite>
-  </div>
-  <div class="pain">
-    <div class="rise"><div class="line"></div><h3>Word for word, by hand</h3><p>Regulatory teams copy the reference label, change what the law allows, and write a reason for every difference, mostly in Word.</p></div>
-    <div class="rise"><div class="line"></div><h3>One miss can cost months</h3><p>A protected use left in, or a cross-reference left pointing at removed text, can draw an FDA deficiency and delay approval.</p></div>
-    <div class="rise"><div class="line"></div><h3>It never stays done</h3><p>Every time the brand label changes, every generic that follows it has to be updated and re-annotated.</p></div>
+  <blockquote class="quote" data-r>
+    <q>&hellip;the same as the labeling of the reference listed drug except for differences annotated and explained</q>
+    <cite>21 CFR 314.94(a)(8)</cite>
+  </blockquote>
+  <div class="cols" data-g>
+    <div data-r><h3>Word for word, by hand</h3><p>Teams copy the reference label, change what the law allows, and write a reason for every difference, mostly in Word.</p></div>
+    <div data-r><h3>One miss can cost months</h3><p>A protected use left in, or a cross-reference pointing at removed text, can draw an FDA deficiency and delay approval.</p></div>
+    <div data-r><h3>It never stays done</h3><p>When the brand label changes, every generic that follows it has to be updated and re-annotated.</p></div>
   </div>
 </div></section>
 
-<section class="sec tight tone-mid"><div class="wrap center rise">
-  <h2 class="h-l">Our solution</h2>
-  <p class="sub">Software does the volume. People keep the judgment. Scroll to see how one section is made.</p>
+<section class="sec tight alt"><div class="wrap center" data-g>
+  <h2 class="h-l" data-r>Our Solution</h2>
+  <p class="sub" data-r>Software does the volume. People keep the judgment.</p>
 </div></section>
 
-<section class="explode" id="how" aria-label="How Regulark writes a filing section">
+<section class="explode alt" id="how" aria-label="How Regulark writes a filing section">
   <div class="pin">
     <ol class="steps3d">
       <li class="on"><h3>Research</h3><p>Regulark gathers what the section depends on: the reference label, Orange Book patents and exclusivities, and FDA's product-specific guidance.</p></li>
-      <li><h3>Draft</h3><p>It writes the section in FDA's vocabulary. Every sentence is traced back to the source it came from.</p></li>
-      <li><h3>Annotate</h3><p>Differences from the reference drug are marked and numbered, each with its reason, the way the annotated comparison is laid out.</p></li>
-      <li><h3>Approve and record</h3><p>A named person on your team approves each change. Every decision is chained into a record that shows if it's ever altered.</p></li>
+      <li><h3>Draft</h3><p>It writes the section in FDA's vocabulary, and traces every sentence to its source.</p></li>
+      <li><h3>Annotate</h3><p>Each difference from the reference drug is marked and numbered, with its reason, the way the annotated comparison is laid out.</p></li>
+      <li><h3>Approve and record</h3><p>A named person on your team approves each change. Every decision goes into a record that shows if it is ever altered.</p></li>
     </ol>
     <p class="stepcap" aria-live="polite"></p>
     <div class="stage" aria-hidden="true">
       <div class="stack">
         <div class="layer l1"><span class="tag">1. Research</span><div class="hd">SOURCES</div><ul><li>Reference label (RLD)<span>&#10003;</span></li><li>Orange Book: patents, exclusivities<span>&#10003;</span></li><li>Product-specific guidance<span>&#10003;</span></li><li>FDA labeling vocabulary<span>&#10003;</span></li></ul></div>
         <div class="layer l2"><span class="tag">2. Draft</span><div class="hd">1.14.1.3&nbsp; DRAFT LABELING TEXT</div>Corvesartan tablets is an angiotensin II receptor blocker indicated for the treatment of hypertension, to lower blood pressure.<div class="ln" style="width:90%"></div><div class="ln" style="width:72%"></div><div class="ln" style="width:84%"></div></div>
-        <div class="layer l3"><span class="tag">3. Annotate</span><div class="hd">1.14.3.1&nbsp; ANNOTATED COMPARISON</div><span class="del">Corvana</span> <span class="ins">Corvesartan tablets</span><sup style="color:#1F4FB8">1</sup> is an angiotensin II receptor blocker indicated for:<div style="margin-top:8px"><span class="del">1.2 Heart failure</span><sup style="color:#1F4FB8">2</sup></div><div class="ln" style="width:70%"></div></div>
+        <div class="layer l3"><span class="tag">3. Annotate</span><div class="hd">1.14.3.1&nbsp; ANNOTATED COMPARISON</div><span class="del">Corvana</span> <span class="ins">Corvesartan tablets</span><sup>1</sup> is an angiotensin II receptor blocker indicated for:<div style="margin-top:8px"><span class="del">1.2 Heart failure</span><sup>2</sup></div><div class="ln" style="width:70%"></div></div>
         <div class="layer l4"><span class="tag">4. Approve</span><div class="hd">AUDIT RECORD</div><table><tr><td>41</td><td>Name replaced &#10003;</td><td class="h">7b0d&hellip;31c8</td></tr><tr><td>42</td><td>1.2 removed &#10003;</td><td class="h">4f1c&hellip;9a2e</td></tr><tr><td>43</td><td>Section signed off</td><td class="h">a90e&hellip;5d17</td></tr></table></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec tone-dark"><div class="wrap">
-  <div class="center rise">
-    <h2 class="h-l">Your whole ANDA,<br>starting with Module 1</h2>
-    <p class="sub">We start with US FDA filings, where the writing is most repetitive and the rules are most exact, then carry on through the rest of the dossier and into other markets.</p>
+<section class="sec"><div class="wrap">
+  <div class="center" data-g>
+    <h2 class="h-l" data-r>Your Whole ANDA,<br>Starting with Module 1</h2>
+    <p class="sub" data-r>We start with US FDA filings, where the rules are most exact, then move through the rest of the dossier and into other markets.</p>
   </div>
-  <div class="mods" role="group" aria-label="The five modules of an ANDA">
-    <button class="mod on" type="button" aria-pressed="true" data-i="0"><span class="m">1</span><span class="mt">Regional administrative information</span><span class="st">First</span></button>
-    <button class="mod" type="button" aria-pressed="false" data-i="1"><span class="m">2</span><span class="mt">Common technical document summaries</span><span class="st">Next</span></button>
-    <button class="mod" type="button" aria-pressed="false" data-i="2"><span class="m">3</span><span class="mt">Quality</span><span class="st">Next</span></button>
-    <button class="mod" type="button" aria-pressed="false" data-i="3"><span class="m">4</span><span class="mt">Nonclinical study reports</span><span class="st">Next</span></button>
-    <button class="mod" type="button" aria-pressed="false" data-i="4"><span class="m">5</span><span class="mt">Clinical study reports</span><span class="st">Next</span></button>
+  <div class="mods" role="group" aria-label="The five modules of an ANDA" data-g>
+    <button class="mod on" type="button" aria-pressed="true" data-i="0" data-r><span class="m">1</span><span class="mt">Regional administrative information</span><span class="st">First</span></button>
+    <button class="mod" type="button" aria-pressed="false" data-i="1" data-r><span class="m">2</span><span class="mt">Common technical document summaries</span><span class="st">Next</span></button>
+    <button class="mod" type="button" aria-pressed="false" data-i="2" data-r><span class="m">3</span><span class="mt">Quality</span><span class="st">Next</span></button>
+    <button class="mod" type="button" aria-pressed="false" data-i="3" data-r><span class="m">4</span><span class="mt">Nonclinical study reports</span><span class="st">Next</span></button>
+    <button class="mod" type="button" aria-pressed="false" data-i="4" data-r><span class="m">5</span><span class="mt">Clinical study reports</span><span class="st">Next</span></button>
   </div>
   <div class="moddesc" aria-live="polite">
     <p data-i="0" class="on"><b>Module 1, where we start.</b> The US regional section: cover letter, basis for submission, the bioavailability waiver request, and the labeling, including the annotated comparison with the reference drug.</p>
@@ -95,52 +98,41 @@
   </div>
 </div></section>
 
-<section class="sec tone-cream"><div class="wrap">
-  <div class="center rise">
-    <h2 class="h-l">The value we create</h2>
-    <p class="sub">For the generic manufacturer's regulatory team.</p>
+<section class="sec"><div class="wrap">
+  <div class="center" data-g>
+    <h2 class="h-l" data-r>Built for Regulated Work</h2>
+    <p class="sub" data-r>The controls your QA team will ask about are part of the design, not a setting.</p>
   </div>
-  <div class="capture">
-    <div class="tile rise"><span class="glare"></span><div class="big">90%</div><h3>Less time drafting Module 1</h3><p>Our target, to be measured against an experienced specialist's hours per section.</p></div>
-    <div class="tile rise"><span class="glare"></span><h3>Fewer deficiencies</h3><p>Every difference from the reference drug is found, marked and given a reason, so nothing is silently dropped.</p></div>
-    <div class="tile rise"><span class="glare"></span><h3>A record you can hand to QA</h3><p>Who approved each change, when, and on what source, in a chain that shows if it was ever altered.</p></div>
+  <div class="trust" data-g>
+    <div class="t" data-r><span class="ck" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.4 6.3l2.3 2.3 4.9-5.2" fill="none" stroke="#2563EB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>A named person decides</h3><p>Every proposed change is approved or rejected by one named reviewer. Nothing is applied on its own.</p></div></div>
+    <div class="t" data-r><span class="ck" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.4 6.3l2.3 2.3 4.9-5.2" fill="none" stroke="#2563EB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>Carve-outs are written by people</h3><p>Regulark flags protected uses. Your reviewer writes the carve-out. Always.</p></div></div>
+    <div class="t" data-r><span class="ck" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.4 6.3l2.3 2.3 4.9-5.2" fill="none" stroke="#2563EB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>The record is never edited</h3><p>Every change and decision is added to a chained record. The database itself refuses edits and deletions.</p></div></div>
+    <div class="t" data-r><span class="ck" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.4 6.3l2.3 2.3 4.9-5.2" fill="none" stroke="#2563EB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>Every change is traceable</h3><p>Who decided, when, on which source, and which model version proposed it.</p></div></div>
+    <div class="t" data-r><span class="ck" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.4 6.3l2.3 2.3 4.9-5.2" fill="none" stroke="#2563EB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>Checkable without us</h3><p>Every export carries a small verifier that re-checks the record and the files offline.</p></div></div>
+    <div class="t" data-r><span class="ck" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.4 6.3l2.3 2.3 4.9-5.2" fill="none" stroke="#2563EB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>No patient data</h3><p>Regulark works on labeling documents and your applicant details. No patient records, no PHI.</p></div></div>
   </div>
-  <p class="note-goal">Specialists stop retyping and spend their time on the decisions only they can make.</p>
+  <p class="fine" data-r>Deployment options and security documentation are covered in the demo.</p>
 </div></section>
 
-<section class="sec tone-mid"><div class="wrap">
-  <div class="center rise">
-    <h2 class="h-l">The value we capture</h2>
-    <p class="sub">How Regulark plans to earn.</p>
-  </div>
-  <div class="capture">
-    <div class="tile rise"><span class="glare"></span><h3>Priced per filing</h3><p>Customers pay for the sections and filings we produce, not for seats. Price follows the work saved.</p></div>
-    <div class="tile rise"><span class="glare"></span><h3>Recurring by nature</h3><p>Each brand label change sends work to every generic that follows it, so a customer's portfolio keeps generating updates.</p></div>
-    <div class="tile rise"><span class="glare"></span><h3>Land and expand</h3><p>Start with labeling, grow across Module 1, then into Modules 2 to 5 of the same filings.</p></div>
-  </div>
-</div></section>
-
-<section class="sec tone-dark"><div class="wrap">
-  <div class="center rise"><h2 class="h-l">Why now</h2></div>
-  <div class="pain">
-    <div class="rise"><div class="line"></div><h3>Models can finally draft</h3><p>Language models can now write regulatory text to a standard worth reviewing. Regulark uses Claude to draft every proposed change.</p></div>
-    <div class="rise"><div class="line"></div><h3>Regulators want people in charge</h3><p>The joint FDA and EMA principles for AI in drug development (January 2026) put human oversight and clear accountability first. That is how Regulark is built.</p></div>
-    <div class="rise"><div class="line"></div><h3>Generics have been overlooked</h3><p>Most AI for regulatory writing targets new-drug submissions. The generic filing, with its exact rules and constant updates, has been largely left alone.</p></div>
+<section class="sec alt"><div class="wrap">
+  <div class="center" data-r><h2 class="h-l">Why Now</h2></div>
+  <div class="cols" data-g>
+    <div data-r><h3>Models can finally draft</h3><p>Language models now write regulatory text to a standard worth reviewing. Regulark uses Claude to draft every proposed change.</p></div>
+    <div data-r><h3>Regulators want people in charge</h3><p>The joint FDA and EMA principles for AI in drug development (January 2026) put human oversight first. That is how Regulark is built.</p></div>
+    <div data-r><h3>Generics have been overlooked</h3><p>Most AI for regulatory writing targets new-drug submissions. The generic filing, with its exact rules and constant updates, has been left alone.</p></div>
   </div>
 </div></section>
 
-<section class="sec tone-mid"><div class="wrap center rise">
-  <h2 class="h-l">See it on a drug<br>you file against</h2>
-  <p class="sub">We'll walk your regulatory team through a filing section, built from a reference listed drug of your choice.</p>
-  <div class="ctas"><a class="btn" href="contact.html">Request a demo</a></div>
+<section class="sec"><div class="wrap center" data-g>
+  <h2 class="h-l" data-r>See It on a Drug<br>You File Against</h2>
+  <p class="sub" data-r>We'll walk your regulatory team through a filing section built from a reference drug you choose.</p>
+  <div class="ctas" data-r><a class="btn" href="contact.html">Request a demo</a></div>
 </div></section>
-
-
 </main>
 <footer><div class="wrap">
   <span>&copy; 2026 Regulark</span>
   <nav aria-label="Footer"><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></nav>
 </div></footer>
-<script src="main.js?v=3"></script>
+<script src="main.js?v=4"></script>
 </body>
 </html>
