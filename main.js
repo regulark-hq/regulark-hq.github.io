@@ -37,15 +37,26 @@
   var sec=document.querySelector('.explode'); if(!sec) return;
   var stack=sec.querySelector('.stack'), layers=[].slice.call(sec.querySelectorAll('.layer')), items=[].slice.call(sec.querySelectorAll('.steps3d li'));
   var tiltX=0, tiltY=0, last=-1;
+  var cap=sec.querySelector('.stepcap');
+  var mq=window.matchMedia('(max-width:900px)');
+  var vh=window.innerHeight; // fixed until the width changes, so the phone address bar can't make it jump
   function frame(){
-    var r=sec.getBoundingClientRect(), total=sec.offsetHeight-window.innerHeight;
+    var r=sec.getBoundingClientRect(), total=sec.offsetHeight-vh;
     var p=reduce?1:Math.min(1,Math.max(0,-r.top/Math.max(1,total)));
-    var spread=Math.min(1,p/0.35);                 // separate during the first third
-    var gap=1+(window.innerWidth<900?51:85)*spread;
-    var n=layers.length-1; layers.forEach(function(l,i){ l.style.transform='translateZ('+((n-i)*gap)+'px)'; });
+    var spread=Math.min(1,p/0.35);
+    var gap=1+(mq.matches?44:85)*spread;
     var cur=Math.min(3,Math.floor(p*4.0001));
-    if(cur!==last){ items.forEach(function(li,i){li.classList.toggle('on',i===cur);}); layers.forEach(function(l,i){l.classList.toggle('cur',i===cur);}); last=cur; }
-    stack.parentNode.classList.toggle('dim', spread>0.98);
+    var n=layers.length-1;
+    layers.forEach(function(l,i){
+      l.style.transform='translateZ('+((n-i)*gap)+'px)';
+      // fade the other sheets smoothly as the stack opens; the current one stays solid
+      l.style.opacity = (i===cur) ? 1 : (1-0.4*spread).toFixed(3);
+    });
+    if(cur!==last){
+      items.forEach(function(li,i){li.classList.toggle('on',i===cur);});
+      if(cap){ var d=items[cur].querySelector('p'); cap.textContent=d?d.textContent:''; }
+      last=cur;
+    }
     stack.style.setProperty('--s', spread.toFixed(3));
     stack.style.transform='rotateX('+(58-tiltY)+'deg) rotateZ('+(-38+tiltX)+'deg)';
   }
@@ -65,6 +76,7 @@
   }
   var ticking=false;
   window.addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ frame(); ticking=false; }); } },{passive:true});
-  window.addEventListener('resize',frame);
+  var lastW=window.innerWidth;
+  window.addEventListener('resize',function(){ if(window.innerWidth!==lastW){ lastW=window.innerWidth; vh=window.innerHeight; frame(); } });
   frame();
 })();
