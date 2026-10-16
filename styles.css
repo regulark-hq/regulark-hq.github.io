@@ -265,11 +265,11 @@ footer a:hover{opacity:1}
 .cols.cards>div{background:linear-gradient(180deg,#FFFFFF,#FBFAF6);border:1px solid rgba(17,17,17,.08);border-radius:14px;padding:28px 26px;box-shadow:0 18px 40px -32px rgba(17,17,17,.35)}
 .alt .cols.cards>div{background:linear-gradient(180deg,#FFFFFF,#F8F7F1)}
 @media (max-width:640px){.hero+.divider+.sec{padding-top:48px}.cols.cards>div{padding:22px 20px}}
-/* phone: 3D section fills the screen evenly, shorter scroll, no floating tags */
+/* phone: no scroll effect. Sheets stay in place; tapping a step switches the sheet (main.js) */
 @media (max-width:900px){
-  .explode{height:220vh;margin-top:-70px}
-  .explode .pin{align-content:center;padding:0 18px}
-  .stage{height:min(48svh,400px);margin-top:0}
+  .explode{height:auto;margin-top:0}
+  .explode .pin{position:static;height:auto;align-content:start;padding:0 18px 56px}
+  .stage{height:min(48svh,360px);margin-top:32px}
   .stack{width:min(270px,68vw);height:min(200px,50vw)}
   .layer{font-size:10.5px}
   .layer .tag{display:none}

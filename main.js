@@ -67,12 +67,14 @@
   var fine = window.matchMedia('(pointer: fine)').matches;
   var stack=sec.querySelector('.stack'), layers=[].slice.call(sec.querySelectorAll('.layer')), lis=[].slice.call(sec.querySelectorAll('.steps3d li'));
   var tiltX=0, tiltY=0, last=-1, cap=sec.querySelector('.stepcap');
+  var sel=0; // phone: the step the visitor tapped
   var mq=window.matchMedia('(max-width:900px)');
   var vh=window.innerHeight; // fixed until the width changes, so the phone address bar can't make it jump
   function frame(){
     var r=sec.getBoundingClientRect(), total=sec.offsetHeight-vh;
-    var p=reduce?1:Math.min(1,Math.max(0,-r.top/Math.max(1,total)));
-    var spread=Math.min(1,p/0.35);
+    var phone=mq.matches; // phone: driven by taps, not scroll
+    var p=phone?(sel+0.5)/4:(reduce?1:Math.min(1,Math.max(0,-r.top/Math.max(1,total))));
+    var spread=phone?1:Math.min(1,p/0.35);
     var gap=1+(mq.matches?44:90)*spread;
     var cur=Math.min(3,Math.floor(p*4.0001));
     var n=layers.length-1;
@@ -92,6 +94,7 @@
   lis.forEach(function(li,i){
     li.setAttribute('tabindex','0'); li.setAttribute('role','button');
     function go(){
+      if(mq.matches){ sel=i; frame(); return; } // phone: tap switches the sheet
       var total=sec.offsetHeight-window.innerHeight;
       var y=sec.getBoundingClientRect().top+window.pageYOffset+total*((i+0.5)/4);
       window.scrollTo({top:y,behavior:reduce?'auto':'smooth'});
