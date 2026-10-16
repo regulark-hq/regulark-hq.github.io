@@ -92,7 +92,6 @@
   lis.forEach(function(li,i){
     li.setAttribute('tabindex','0'); li.setAttribute('role','button');
     function go(){
-      if(mq.matches) return; // phone: steps are plain cards, no scroll effect
       var total=sec.offsetHeight-window.innerHeight;
       var y=sec.getBoundingClientRect().top+window.pageYOffset+total*((i+0.5)/4);
       window.scrollTo({top:y,behavior:reduce?'auto':'smooth'});
