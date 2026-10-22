@@ -49,8 +49,8 @@ p{color:var(--text)}
 /* buttons */
 .ctas{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-top:32px}
 .center .ctas{justify-content:center}
-.btn{display:inline-block;background:var(--blue-soft);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:12px 22px;border-radius:8px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .2s}
-.btn:hover{background:var(--blue);transform:translateY(-1px);box-shadow:0 10px 24px -12px rgba(37,99,235,.6)}
+.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:12px 22px;border-radius:8px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .2s}
+.btn:hover{background:#1D4ED8;transform:translateY(-1px);box-shadow:0 10px 24px -12px rgba(37,99,235,.6)}
 .more{color:var(--blue);text-decoration:none;font-weight:500;font-size:16px;display:inline-flex;gap:6px;align-items:center}
 .more span{display:inline-block;transition:transform .3s var(--ease)}
 .more:hover span{transform:translateX(4px)}
@@ -124,7 +124,7 @@ p{color:var(--text)}
 .explode{position:relative;height:330vh;margin-top:-90px}
 .explode .pin{position:sticky;top:60px;height:calc(100vh - 60px);height:calc(100svh - 60px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:center;gap:24px;max-width:1120px;margin:0 auto;padding:0 28px}
 .steps3d{list-style:none;margin:0;padding:0}
-.steps3d li{padding:16px 0 16px 22px;border-left:2px solid var(--hair);opacity:.45;cursor:pointer;transition:opacity .4s,border-color .4s}
+.steps3d li{padding:16px 0 16px 22px;border-left:2px solid var(--hair);opacity:.65;cursor:pointer;transition:opacity .4s,border-color .4s}
 .steps3d li h3{font-size:19px}
 .steps3d li p{margin:6px 0 0;font-size:16px;line-height:1.55;max-height:0;opacity:0;overflow:hidden;transition:max-height .5s var(--ease),opacity .4s}
 .steps3d li.on{opacity:1;border-color:var(--blue)}

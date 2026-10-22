@@ -84,7 +84,7 @@
       l.classList.toggle('cur', i===cur && spread>0.5);
     });
     if(cur!==last){
-      lis.forEach(function(li,i){li.classList.toggle('on',i===cur);});
+      lis.forEach(function(li,i){var on=i===cur; li.classList.toggle('on',on); if(on){li.setAttribute('aria-current','step');}else{li.removeAttribute('aria-current');}});
       if(cap){ var d=lis[cur].querySelector('p'); cap.textContent=d?d.textContent:''; }
       last=cur;
     }
@@ -92,7 +92,7 @@
     stack.style.transform='rotateX('+(44-tiltY)+'deg) rotateZ('+(-26+tiltX)+'deg)';
   }
   lis.forEach(function(li,i){
-    li.setAttribute('tabindex','0'); li.setAttribute('role','button');
+    li.setAttribute('tabindex','0');
     function go(){
       if(mq.matches){ sel=i; frame(); return; } // phone: tap switches the sheet
       var total=sec.offsetHeight-window.innerHeight;
