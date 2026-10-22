@@ -345,3 +345,11 @@ footer a:hover{opacity:1}
 
 /* hero: shown sharp immediately, no reveal (first impression must not load blurred) */
 .js .hero [data-r]{opacity:1;transform:none;filter:none;transition:none}
+
+/* Security page: what we don't claim yet, set apart but quiet */
+.notyet{max-width:760px;margin:48px auto 0;padding:24px 28px;background:var(--card);border:1px solid var(--hair);border-left:2px solid var(--brass);border-radius:14px}
+.notyet h3{font-size:17px;margin-bottom:8px}
+.notyet p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+@media (max-width:640px){.notyet{margin-top:36px;padding:20px 18px}}
+.fine.link{margin-top:14px}
+.fine .more{font-size:inherit}
